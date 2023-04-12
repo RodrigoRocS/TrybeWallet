@@ -1,7 +1,7 @@
 import {
   FETCH_CURRENCIES_REQUEST,
   FETCH_CURRENCIES_LIST,
-  FETCH_CURRENCIES_FAIL, ADD_EXPENSE, SUM_ASK } from '../actions';
+  FETCH_CURRENCIES_FAIL, ADD_EXPENSE, SUM_ASK, DELETE_EXPENSE } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -38,7 +38,14 @@ const walletReducer = (state = INITIAL_STATE, action) => {
   case SUM_ASK:
     return {
       ...state,
-      ask: +(state.ask + action.payload).toFixed(2),
+      ask: +(state.expenses
+        .reduce((acc, curr) => acc + (curr.value * (Object.values(curr.exchangeRates)
+          .find((el) => el.code === curr.currency).ask)), 0)).toFixed(2),
+    };
+  case DELETE_EXPENSE:
+    return {
+      ...state,
+      expenses: state.expenses.filter((e) => e.id !== action.payload),
     };
   default:
     return state;

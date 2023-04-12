@@ -7,15 +7,16 @@ export const FETCH_CURRENCIES_LIST = 'FETCH_CURRENCIES_LIST';
 export const FETCH_CURRENCIES_FAIL = 'FETCH_CURRENCIES_FAIL';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const SUM_ASK = 'SUM_ASK';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 export const addEmail = (email) => ({
   type: VALID_EMAIL,
   payload: email,
 });
 
-export const fetchCurrenciesRequest = () => ({ type: FETCH_CURRENCIES_REQUEST });
-
 export const sumAsk = (payload) => ({ type: SUM_ASK, payload });
+
+export const fetchCurrenciesRequest = () => ({ type: FETCH_CURRENCIES_REQUEST });
 
 export const fetchCurrenciesList = (currencies) => ({
   type: FETCH_CURRENCIES_LIST,
@@ -41,3 +42,5 @@ export const addExpense = (payload) => ({
   type: ADD_EXPENSE,
   payload,
 });
+
+export const delExpense = (payload) => ({ type: DELETE_EXPENSE, payload });

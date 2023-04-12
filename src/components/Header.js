@@ -9,7 +9,7 @@ class Header extends Component {
       <div>
         <p data-testid="email-field">{ email }</p>
         <p data-testid="total-field">
-          { ask }
+          { Number(ask).toFixed(2) }
         </p>
         <p data-testid="header-currency-field">BRL</p>
       </div>

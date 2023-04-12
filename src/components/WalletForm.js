@@ -33,13 +33,11 @@ class WalletForm extends Component {
   handleClick = async (event) => {
     event.preventDefault();
     const { dispatch } = this.props;
-    const { id, value, currency } = this.state;
+    const { id } = this.state;
     const exchangeRates = await getCurrencies();
-    const quotation = value * Object.values(exchangeRates)
-      .find((e) => e.code === currency).ask;
     dispatch(addExpense({ ...this.state, exchangeRates }));
     this.setState({ id: id + 1, value: '', description: '' });
-    dispatch(sumAsk(quotation));
+    dispatch(sumAsk());
   };
 
   render() {
