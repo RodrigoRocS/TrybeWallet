@@ -16,7 +16,7 @@ class Login extends React.Component {
     });
   };
 
-  handdleClick = () => {
+  handleClick = () => {
     const { email } = this.state;
     const { history, dispatch } = this.props;
     dispatch(addEmail(email));
@@ -54,7 +54,7 @@ class Login extends React.Component {
         />
         <button
           disabled={ !isValid }
-          onClick={ () => this.handdleClick() }
+          onClick={ this.handleClick }
         >
           Entrar
 
