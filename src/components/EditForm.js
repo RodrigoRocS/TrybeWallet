@@ -95,7 +95,13 @@ class EditForm extends Component {
             value={ description }
             onChange={ this.onInputChange }
           />
-          <button onClick={ this.handleClick }>Editar despesa</button>
+          <button
+            onClick={ this.handleClick }
+            data-testid="save-edit-btn"
+          >
+            Editar despesa
+
+          </button>
         </form>
       </>
     );

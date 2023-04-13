@@ -1,6 +1,5 @@
 import {
   FETCH_CURRENCIES_LIST,
-  FETCH_CURRENCIES_FAIL,
   ADD_EXPENSE, SUM_ASK,
   DELETE_EXPENSE, EDIT_EXPENSE, SAVE_EDIT,
 } from '../actions';
@@ -20,11 +19,6 @@ const walletReducer = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       currencies: Object.keys(action.payload).filter((e) => e !== 'USDT'),
-    };
-  case FETCH_CURRENCIES_FAIL:
-    return {
-      ...state,
-      errorMessage: action.payload,
     };
   case ADD_EXPENSE:
     return {
